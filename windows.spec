@@ -2,10 +2,10 @@
 
 
 a = Analysis(
-    ['/Users/lincolnnguyen/workplace/FlaskPywebviewExample/FlaskPywebviewExampleApi/api/run.py'],
+    ['api\\run.py'],
     pathex=[],
     binaries=[],
-    datas=[('/Users/lincolnnguyen/workplace/FlaskPywebviewExample/FlaskPywebviewExampleApi/static', 'api/static')],
+    datas=[('static', 'api\\static')],
     hiddenimports=[],
     hookspath=[],
     hooksconfig={},
@@ -19,7 +19,7 @@ exe = EXE(
     pyz,
     a.scripts,
     a.binaries,
-    a.datas,`
+    a.datas,
     [],
     name='Flask Pywebview Example',
     debug=False,
@@ -34,10 +34,5 @@ exe = EXE(
     target_arch=None,
     codesign_identity=None,
     entitlements_file=None,
-)
-app = BUNDLE(
-    exe,
-    name='Flask Pywebview Example.app',
-    icon='dist/Icon.icns',
-    bundle_identifier='com.rinkaaan.FlaskPywebviewExample',
+    icon=['dist\\Icon.ico'],
 )
