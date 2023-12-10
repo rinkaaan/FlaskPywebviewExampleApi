@@ -1,12 +1,14 @@
-import webview
 from threading import Thread, Event
+
+import webview
+
 from api.app import app
+from api.utils import get_free_port
 
 stop_event = Event()
-
 app_title = "Flask Pywebview Example"
 host = "http://127.0.0.1"
-port = 5001
+port = get_free_port()
 
 
 def run_api():
@@ -29,4 +31,4 @@ if __name__ == '__main__':
 
     webview.start()
 
-stop_event.set()  # Signal the Flask server to shut down
+stop_event.set()

@@ -2,10 +2,10 @@
 
 
 a = Analysis(
-    ['/Users/lincolnnguyen/workplace/FlaskPywebviewExample/FlaskPywebviewExampleApi/api/run.py'],
+    ['api/run.py'],
     pathex=[],
     binaries=[],
-    datas=[('/Users/lincolnnguyen/workplace/FlaskPywebviewExample/FlaskPywebviewExampleApi/static', 'api/static')],
+    datas=[('static', 'api/static')],
     hiddenimports=[],
     hookspath=[],
     hooksconfig={},
@@ -19,7 +19,7 @@ exe = EXE(
     pyz,
     a.scripts,
     a.binaries,
-    a.datas,`
+    a.datas,
     [],
     name='Flask Pywebview Example',
     debug=False,
