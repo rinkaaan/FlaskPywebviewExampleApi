@@ -5,8 +5,12 @@ a = Analysis(
     ['api/run.py'],
     pathex=[],
     binaries=[],
-    datas=[('static', 'api/static')],
-    hiddenimports=[],
+    datas=[
+        ('static', 'static'),
+    ],
+    hiddenimports=[
+        'apiflask.settings'
+    ],
     hookspath=[],
     hooksconfig={},
     runtime_hooks=[],

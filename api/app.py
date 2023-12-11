@@ -1,23 +1,14 @@
-from flask import send_from_directory, Flask
+from apiflask import APIFlask
 from flask_cors import CORS
 
-from FlaskPywebviewExampleApi.api.resources.time.api import time_bp
+from api.resources.time.api import time_bp
 
-app = Flask(__name__)
-CORS(app, supports_credentials=False)
+flask_app = APIFlask(__name__, title="Flask Pywebview Example API", version="0.1.0", spec_path="/openapi.yaml")
+flask_app.config["SPEC_FORMAT"] = "yaml"
+flask_app.config["LOCAL_SPEC_PATH"] = "openapi.yaml"
+CORS(flask_app, supports_credentials=False)
 
-
-@app.get("/")
-def serve_index():
-    return send_from_directory("static", "index.html")
-
-
-@app.get("/<path:filename>")
-def serve_static(filename):
-    return send_from_directory("static", filename)
-
-
-app.register_blueprint(time_bp)
+flask_app.register_blueprint(time_bp)
 
 if __name__ == "__main__":
-    app.run(port=34200, debug=True)
+    flask_app.run(port=34200, debug=True)

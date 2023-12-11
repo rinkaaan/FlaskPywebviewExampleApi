@@ -1,10 +1,18 @@
 import datetime
 
-from flask import Blueprint
+from apiflask import Schema, APIBlueprint
+from apiflask.fields import String
 
-time_bp = Blueprint("time", __name__, url_prefix="/api/time")
+time_bp = APIBlueprint("time", __name__, url_prefix="/time")
+
+
+class TimeOut(Schema):
+    time = String()
 
 
 @time_bp.get("/")
+@time_bp.output(TimeOut)
 def get():
-    return datetime.datetime.now(datetime.timezone.utc).isoformat()
+    return {
+        "time": datetime.datetime.now(datetime.timezone.utc).isoformat()
+    }
