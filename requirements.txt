@@ -1,3 +1,4 @@
-Flask
+apiflask
+flask-cors
 pywebview
 pyinstaller

@@ -1,25 +1,23 @@
-from datetime import datetime
+from flask import send_from_directory, Flask
+from flask_cors import CORS
 
-from flask import Flask, send_from_directory
+import api.resources.time.api
 
 app = Flask(__name__)
+CORS(app, supports_credentials=False)
 
 
-@app.route("/")
+@app.get("/")
 def serve_index():
     return send_from_directory("static", "index.html")
 
 
-@app.route("/<path:filename>")
+@app.get("/<path:filename>")
 def serve_static(filename):
     return send_from_directory("static", filename)
 
 
-@app.route("/api/time")
-def time():
-    current_time = datetime.now().strftime("%H:%M:%S")
-    return {"time": current_time}
+api.resources.time.api.register_routes(app)
 
-
-if __name__ == '__main__':
-    app.run(debug=True, port=5001)
+if __name__ == "__main__":
+    app.run(port=34200, debug=True)

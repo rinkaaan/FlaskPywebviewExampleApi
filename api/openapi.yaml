@@ -1,0 +1,31 @@
+openapi: 3.0.0
+servers:
+  - url: http://localhost:34200
+    description: Time API
+info:
+  title: Time
+  version: '0.1'
+paths:
+  /api/time:
+    get:
+      tags: [ Time ]
+      x-openapi-router-controller: api.resources.time.api
+      operationId: get
+      summary: Get time
+      responses:
+        '200':
+          description: Return time
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Time'
+components:
+  schemas:
+    Time:
+      type: object
+      properties:
+        time:
+          type: string
+          format: date-time
+          description: Time
+          example: '2015-07-07T15:49:51.230+02:00'
