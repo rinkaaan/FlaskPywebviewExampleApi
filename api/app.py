@@ -1,7 +1,7 @@
 from flask import send_from_directory, Flask
 from flask_cors import CORS
 
-import api.resources.time.api
+from FlaskPywebviewExampleApi.api.resources.time.api import time_bp
 
 app = Flask(__name__)
 CORS(app, supports_credentials=False)
@@ -17,7 +17,7 @@ def serve_static(filename):
     return send_from_directory("static", filename)
 
 
-api.resources.time.api.register_routes(app)
+app.register_blueprint(time_bp)
 
 if __name__ == "__main__":
     app.run(port=34200, debug=True)

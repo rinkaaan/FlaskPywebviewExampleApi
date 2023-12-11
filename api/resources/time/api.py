@@ -1,7 +1,10 @@
 import datetime
 
+from flask import Blueprint
 
-def register_routes(app):
-    @app.get("/api/time")
-    def get():
-        return datetime.datetime.now(datetime.timezone.utc).isoformat()
+time_bp = Blueprint("time", __name__, url_prefix="/api/time")
+
+
+@time_bp.get("/")
+def get():
+    return datetime.datetime.now(datetime.timezone.utc).isoformat()

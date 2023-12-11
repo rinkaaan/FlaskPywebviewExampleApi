@@ -9,8 +9,6 @@ paths:
   /api/time:
     get:
       tags: [ Time ]
-      x-openapi-router-controller: api.resources.time.api
-      operationId: get
       summary: Get time
       responses:
         '200':
