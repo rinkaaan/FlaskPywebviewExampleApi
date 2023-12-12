@@ -10,6 +10,7 @@ WORKSPACE="$WORKPLACE/FlaskPywebviewExampleApi"
   rm -rf dist/Icon.icns
 
   mkdir temp
+  mkdir -p dist
   svgexport "$ICON_SRC" temp/icon_16.png 16:16
   svgexport "$ICON_SRC" temp/icon_32.png 32:32
   svgexport "$ICON_SRC" temp/icon_64.png 64:64
