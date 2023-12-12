@@ -11,6 +11,7 @@ WORKSPACE="$WORKPLACE/FlaskPywebviewExampleApi"
 
   # Create temporary directory
   mkdir temp
+  mkdir -p dist
 
   # Generate icon files with different sizes
   svgexport "$ICON_SRC" temp/icon_16.png 16:16
